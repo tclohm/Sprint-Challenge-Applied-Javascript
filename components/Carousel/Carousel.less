@@ -36,16 +36,21 @@
   }
   img {
     .width-100();
-    //display: block;
+    display: none;
+    opacity: 0;
+    z-index: -1; 
   }
-  .img-left {
-    animation: scroll;
-    transform: translateX(-50%);
-    position: left;
+  .current-img {
+    display: block;
+    opacity: 1;
+    z-index: -1;
   }
-  .img-right {
-    animation: scroll;
-    transform: translateX(50%);
-    position: right
+
+  .img-to-left {
+    animation: slide 1s linear;
+  }
+
+  .img-to-right {
+    animation: 
   }
 }

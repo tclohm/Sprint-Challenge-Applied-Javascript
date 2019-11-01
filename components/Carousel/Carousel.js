@@ -38,6 +38,7 @@ function Carousel() {
     carousel.classList.add("carousel");
     leftButton.classList.add("left-button");
     rightButton.classList.add("right-button");
+    image1.classList.add("current-img");
 
     // structure
     carousel.appendChild(leftButton);
@@ -56,15 +57,29 @@ function Carousel() {
     image4.src = "./assets/carousel/turntable.jpeg";
 
 
-    const imageReference = [image1, image2, image3, image4];
-    let imageIndex = 0;
+    const images = [image1, image2, image3, image4];
+    let counter = 0;
+    const imagesLength = images.length;
+
+    function nav(direction) {
+        images[counter].classList.remove("current-img");
+        counter += direction;
+        if (direction === -1 && counter < 0) {
+            counter = imagesLength - 1;
+        }
+        // if the direction === 1 && images[counter] value is null (out of the scope)
+        if (direction === 1 && !images[counter]) {
+            counter = 0;
+        }
+        images[counter].classList.add("current-img");
+    }
 
     leftButton.addEventListener("click", function() {
-        imageReference.map( (image) => {
-            image.classList.toggle("img-left");
-        })
-        console.log("click");
-    })
+        nav(-1);
+    });
+    rightButton.addEventListener("click", function() {
+        nav(1);
+    });
 
     return carousel;
 }

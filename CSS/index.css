@@ -301,5 +301,12 @@ body {
 }
 .carousel img {
   width: 100%;
+  display: none;
+  opacity: 0;
+  z-index: -1;
+}
+.carousel .current-img {
   display: block;
+  opacity: 1;
+  z-index: -1;
 }
