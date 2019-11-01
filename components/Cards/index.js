@@ -73,7 +73,7 @@ function Card(props) {
 	author.appendChild(authorName);
 	imageContainer.appendChild(image);
 
-	// content
+	// dependency injection
 	headline.textContent = props.headline;
 	image.src = props.authorPhoto;
 	authorName.textContent = props.authorName;
